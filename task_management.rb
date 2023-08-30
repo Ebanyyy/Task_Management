@@ -62,6 +62,9 @@ puts "---"
 puts "Assign to?"
 puts task.assign_user("Bany")
 puts "---"
+puts "Due date:"
+puts task.due_date("11.59pm")
+puts "---"
 checklist = Checklist.new
 checklist.adding_list("Do assignment")
 checklist.adding_list("Take medicine")
