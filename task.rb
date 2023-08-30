@@ -1,14 +1,10 @@
 class Task
 	attr_accessor :description
+
 	def initialize(description)
 		@description = description
 		@due_date = nil
-		@completed = "Not complete"
 		@assign_to = []
-	end
-
-	def completed?
-		@completed = "Completed"
 	end
 
 	def assign_user(name)
@@ -20,6 +16,7 @@ class Task
 	end
 end
 
+
 task = Task.new("Task Management")
 puts task.description
 puts "Status?"
@@ -29,3 +26,4 @@ puts "Assign to?"
 puts task.assign_user("Bany")
 puts "Due date:"
 puts task.due_date("11.59pm")
+
