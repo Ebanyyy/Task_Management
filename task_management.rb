@@ -1,5 +1,6 @@
 class Task
 	attr_accessor :description
+
 	def initialize(description)
 		@description = description
 		@due_date = nil
@@ -23,18 +24,15 @@ class Checklist
 		@note = nil
 	end
 
-	def adding_list(list)
-		@lists << list
-		puts "Adding: #{list}"
+	def adding_list(title)
+		title = Task.new(title)
+		@lists << title
+		puts "Adding: #{title.description}"
 	end
 
-	def removing_list(list)
-		if @lists.include?(list)
-			@lists.delete(list)
-			puts "#{list} has been removed."
-		else
-			puts "#{list} is not on the list."
-		end
+	def removing_list(title)
+		@lists.reject! { |list| list.description == title } #'!' means to return back the list
+		puts "#{title} has been removed."
 	end
 
 	def status?
@@ -50,20 +48,21 @@ class Checklist
 			puts "Empty."
 		else
 			puts "To-do list:"
-			@lists.each_with_index { |list, index| puts "#{index + 1}. #{list}"}
+			@lists.each_with_index { |title, index| puts "#{index + 1}. #{title.description}"}
 		end
 	end
 end
 
 
-task = Task.new("Task Management")
-puts task.description
-puts "---"
-puts "Assign to?"
-puts task.assign_user("Bany")
-puts "---"
-puts "Due date:"
-puts task.due_date("Tuesday: 11.59pm")
+# task = Task.new("List of the day")
+# puts task.description
+# puts "---"
+# puts "Assign to?"
+# puts task.assign_user("Bany")
+# puts "---"
+# puts "Due date:"
+# puts task.due_date("Tuesday: 11.59pm")
+# puts task
 puts "---"
 checklist = Checklist.new
 checklist.adding_list("Do assignment")
