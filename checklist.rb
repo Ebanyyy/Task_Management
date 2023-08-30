@@ -5,18 +5,15 @@ class Checklist
 		@note = nil
 	end
 
-	def adding_list(list)
-		@lists << list
-		puts "Adding: #{list}"
+	def adding_list(title)
+		title = Task.new(title)
+		@lists << title
+		puts "Adding: #{title.description}"
 	end
 
-	def removing_list(list)
-		if @lists.include?(list)
-			@lists.delete(list)
-			puts "#{list} has been removed."
-		else
-			puts "#{list} is not on the list."
-		end
+	def removing_list(title)
+		@lists.reject! { |list| list.description == title } #'!' means to return back the list
+		puts "#{title} has been removed."
 	end
 
 	def status?
@@ -32,7 +29,7 @@ class Checklist
 			puts "Empty."
 		else
 			puts "To-do list:"
-			@lists.each_with_index { |list, index| puts "#{index + 1}. #{list}"}
+			@lists.each_with_index { |title, index| puts "#{index + 1}. #{title.description}"}
 		end
 	end
 end
