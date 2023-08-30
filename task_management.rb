@@ -63,7 +63,7 @@ puts "Assign to?"
 puts task.assign_user("Bany")
 puts "---"
 puts "Due date:"
-puts task.due_date("11.59pm")
+puts task.due_date("Tuesday: 11.59pm")
 puts "---"
 checklist = Checklist.new
 checklist.adding_list("Do assignment")
@@ -79,4 +79,6 @@ puts checklist.add_note("Make a new list")
 puts "---"
 puts "Remove list:"
 puts checklist.removing_list("Do assignment")
+checklist.adding_list("Do research")
+puts "---"
 checklist.display_lists
