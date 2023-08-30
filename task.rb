@@ -27,3 +27,5 @@ puts task.completed?
 puts "---"
 puts "Assign to?"
 puts task.assign_user("Bany")
+puts "Due date:"
+puts task.due_date("11.59pm")
